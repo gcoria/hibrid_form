@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Boleta Saenz
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-list no-lines>
+    <form [formGroup]="simpleForm">
+      
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Lugar</ion-label>
+            <ion-input formControlName="place" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col >
+          <ion-item class='small_roof'>
+            <ion-label></ion-label>
+            <ion-input placeholder="fecha" formControlName="date" type="date"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>  
+          
+      <ion-row>
+        <ion-item>
+          <ion-label floating>Operador/Comisionista</ion-label>
+          <ion-input formControlName="operator" type="text"></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item width-40>
+            <ion-label floating>Comprador</ion-label>
+            <ion-input formControlName="buyer" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-30>
+          <ion-item>
+            <ion-label floating>Plazo</ion-label>
+            <ion-input formControlName="term_buyer" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>  
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Comision</ion-label>
+            <ion-input formControlName="comision_buyer" type="number"></ion-input>%
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>*</ion-label>
+            <ion-input formControlName="saler_b" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Autorizado a la Compra</ion-label>
+            <ion-input formControlName="autorization" type="text"></ion-input>
+         </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>  
+        <ion-col>
+          <ion-item>
+            <ion-label floating>Establecimiento Faenador</ion-label>
+            <ion-input formControlName="faena" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-item>
+          <ion-label floating>Detalle</ion-label>
+          <ion-input formControlName="detail" type="text"></ion-input>
+        </ion-item>
+      </ion-row>
+
+      <ion-row>
+        <ion-col width-50>
+          <ion-item>
+            <ion-label floating>Raza</ion-label>
+            <ion-input formControlName="raze" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-15>      
+          <ion-item>
+            <ion-label floating>Kilos</ion-label>
+            <ion-input formControlName="kg" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-15>      
+          <ion-item>
+            <ion-label floating>Precio</ion-label>
+            <ion-input formControlName="amount" type="number"></ion-input>
+          </ion-item>
+        </ion-col>  
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col width-49>
+          <ion-item>
+            <ion-label floating>Vendedor</ion-label>
+            <ion-input formControlName="saler" type="text"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col width-49>
+          <ion-item>
+            <ion-label floating>Plazo</ion-label>
+            <ion-input formControlName="term_saler" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>  
+        <ion-col width-29>
+          <ion-item>
+            <ion-label floating>Comision</ion-label>
+            <ion-input formControlName="comision_saler" type="number"></ion-input>%
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label floating>*</ion-label>
+            <ion-input formControlName="saler_s" type="number"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    <ion-item>
+      <ion-label floating>Destino</ion-label>
+      <ion-input formControlName="destiny" type="text"></ion-input> 
+    </ion-item> 
+    
+    <ion-row>
+      <ion-col> 
+        <ion-item>
+          <ion-label floating>Nro DTE</ion-label>
+          <ion-input formControlName="dte" type="number"></ion-input>
+        </ion-item>
+      </ion-col>  
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Flete</ion-label>
+          <ion-input formControlName="flete" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-item>
+      <ion-label floating>Renspa Origen</ion-label>
+      <ion-input formControlName="res_origin" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Renspa Destino</ion-label>
+      <ion-input formControlName="res_destiny" type="number"></ion-input>
+    </ion-item>
+
+   </form>
+   <br><hr>
+    <ion-row>
+      <ion-col width-20>
+        <button (click)="clean()" ion-button full color='danger' >Borrar</button>
+      </ion-col>
+      <ion-col width-26>
+        <button (click)="update()" ion-button full color='orange' >Actualizar</button>
+      </ion-col>
+      <ion-col width-49>
+        <button (click)="send_mail()" ion-button full color='secondary' >Enviar</button>
+      </ion-col>   
+    </ion-row>
+  </ion-list>
+</ion-content>
