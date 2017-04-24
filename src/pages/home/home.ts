@@ -79,7 +79,7 @@ export class HomePage {
       to: 'cargas.saenz@gmail.com',
       cc: '',
       bcc: [],
-      subject: "Boleta" + form.operator,
+      subject: "Boleta " + form.operator,
       body:"Lugar: " + form.place + "<br>" +              
           "Fecha: " + this.format_date(form.date) + "<br>" +              
           "Operario/Comisionista: " + form.operator + "<br>" +              
@@ -116,7 +116,7 @@ export class HomePage {
       to: 'cargas.saenz@gmail.com',
       cc: '',
       bcc: [],
-       subject: "Boleta" + form.operator,
+       subject: "Boleta " + form.operator,
        body:"Lugar: " + form.place + "<br>" +              
             "Fecha: " + this.format_date(form.date) + "<br>" +              
             "Operario/Comisionista: " + form.operator + "<br>" +              
