@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [EmailComposer]
+  providers: [EmailComposer, SocialSharing]
 })
 
 export class HomePage {
@@ -17,7 +18,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
   	          public emailComposer: EmailComposer,
-  	          public formBuilder: FormBuilder) {
+  	          public formBuilder: FormBuilder,
+              public socialSharing: SocialSharing) {
 
   	this.simpleForm = formBuilder.group({
         place: [''],
@@ -138,6 +140,12 @@ export class HomePage {
             "Renspa Destino: " + form.res_destiny,                          
        isHtml: true
       };
-    this.emailComposer.open(this.email);
+         // Share via email
+    this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });  
+    //this.emailComposer.open(this.email);
   }
 }
