@@ -140,12 +140,16 @@ export class HomePage {
             "Renspa Destino: " + form.res_destiny,                          
        isHtml: true
       };
-         // Share via email
-    this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
-      // Success!
+    // Share via email
+    this.socialSharing.canShareViaEmail().then(() => {
+      this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
+        // Success!
+      }).catch(() => {
+        // Error!
+      });
     }).catch(() => {
-      // Error!
-    });  
+      console.log("Sharing via email is not possible");
+    });
     //this.emailComposer.open(this.email);
   }
 }
