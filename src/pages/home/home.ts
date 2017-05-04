@@ -119,37 +119,43 @@ export class HomePage {
       cc: '',
       bcc: [],
        subject: "Boleta " + form.operator,
-       body:"Lugar: " + form.place + "<br>" +              
-            "Fecha: " + this.format_date(form.date) + "<br>" +              
-            "Operario/Comisionista: " + form.operator + "<br>" +              
-            "Comprador: " + form.buyer + "<br>" +              
-            "Plazo del Comprador: " + form.term_buyer + "<br>" +              
-            "Comision del Comprador: " + form.comision_buyer +  "%" + " | " + form.saler_b + "<br>" +              
-            "Autorizado a la  Compra:" + form.autorization + "<br>" +              
-            "Establecimiento Faenador:" + form.faena + "<br>" +              
-            "Detalle: " + form.detail + "<br>" +              
-            "Raza: " + form.raze + "<br>" +              
-            "Kilos: " + form.kg + "<br>" +              
-            "Precio: " + form.amount + "<br>" +              
-            "Vendedor: " + form.saler + "<br>" +              
-            "Plazo del Vendedor: " + form.term_saler + "<br>" +              
-            "Comision del Vendedor: " + form.comision_saler +  "%" + " | " + form.saler_s + "<br>" +              
-            "Nro DTE: " + form.dte + "<br>" +
-            "Flete: " + form.flete + "<br>" +              
-            "Renspa Origen: " + form.res_origin + "<br>" +
+       body:"Lugar: " + form.place + "\n" +              
+            "Fecha: " + this.format_date(form.date) + "\n" +              
+            "Operario/Comisionista: " + form.operator + "\n" +              
+            "Comprador: " + form.buyer + "\n" +              
+            "Plazo del Comprador: " + form.term_buyer + "\n" +              
+            "Comision del Comprador: " + form.comision_buyer +  "%" + " | " + form.saler_b + "\n" +              
+            "Autorizado a la  Compra:" + form.autorization + "\n" +              
+            "Establecimiento Faenador:" + form.faena + "\n" +              
+            "Detalle: " + form.detail + "\n" +              
+            "Raza: " + form.raze + "\n" +              
+            "Kilos: " + form.kg + "\n" +              
+            "Precio: " + form.amount + "\n" +              
+            "Vendedor: " + form.saler + "\n" +              
+            "Plazo del Vendedor: " + form.term_saler + "\n" +              
+            "Comision del Vendedor: " + form.comision_saler +  "%" + " | " + form.saler_s + "\n" +              
+            "Nro DTE: " + form.dte + "\n" +
+            "Flete: " + form.flete + "\n" +              
+            "Renspa Origen: " + form.res_origin + "\n" +
             "Renspa Destino: " + form.res_destiny,                          
-       isHtml: true
-      };
-    // Share via email
-    this.socialSharing.canShareViaEmail().then(() => {
-      this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
-        // Success!
-      }).catch(() => {
-        // Error!
-      });
-    }).catch(() => {
-      console.log("Sharing via email is not possible");
-    });
+      isHtml: true
+    };
+
+   
+    let options = {
+      message: this.email.body,
+      subject: this.email.subject
+    }
+
+    this.socialSharing.shareWithOptions(options);
+
+    
+    //// Share via email
+    //this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
+    //  // Success!
+    //}).catch(() => {
+    //  // Error!
+    //});
     //this.emailComposer.open(this.email);
   }
 }
