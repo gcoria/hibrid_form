@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { EmailComposer } from '@ionic-native/email-composer';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [EmailComposer, SocialSharing]
+  providers: [SocialSharing]
 })
 
 export class HomePage {
@@ -17,7 +16,6 @@ export class HomePage {
   email: any;
 
   constructor(public navCtrl: NavController,
-  	          public emailComposer: EmailComposer,
   	          public formBuilder: FormBuilder,
               public socialSharing: SocialSharing) {
 
@@ -147,15 +145,10 @@ export class HomePage {
       subject: this.email.subject
     }
 
-    this.socialSharing.shareWithOptions(options);
-
-    
-    //// Share via email
-    //this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
-    //  // Success!
-    //}).catch(() => {
-    //  // Error!
-    //});
-    //this.emailComposer.open(this.email);
+    this.socialSharing.shareViaEmail(this.email.body, this.email.subject, [this.email.to]).then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });
   }
 }
